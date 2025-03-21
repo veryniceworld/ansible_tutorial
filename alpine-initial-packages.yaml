@@ -1,0 +1,28 @@
+- hosts: alpine
+  become: true
+  tasks:
+
+  - name: APK update
+    apk:
+      update_cache: true    
+
+  - name: install packages
+    apk:
+      name:
+        - vim
+        - python3
+        - py3-pip 
+        - sudo 
+        - openssh
+        - pipx
+        - htop
+        - bash
+        - bash-completion
+        - fastfetch
+        - screen
+    #   - qemu-guest-agent
+    #   - qemu-guest-agent-openrc
+    #   - virtualbox-guest-additions
+    #   - virtualbox-guest-additions-openrc
+      state: latest  
+
